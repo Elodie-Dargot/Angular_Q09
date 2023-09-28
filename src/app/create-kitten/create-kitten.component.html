@@ -1,0 +1,10 @@
+<form [formGroup]="kittenForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+        <legend>Create Kitten Card</legend>
+        Name: <input type="text" id="name" formControlName="name"><br />
+        Breed: <input type="text" id="breed" formControlName="breed"><br />
+        Birthday: <input type="date" id="birthday" formControlName="birthday"><br />
+        Photo link: <input type="text" id="picture" formControlName="picture">
+    </fieldset>
+    <button type="submit">Create New Kitten</button>
+</form>
