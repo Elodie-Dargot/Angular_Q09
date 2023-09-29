@@ -1,5 +1,6 @@
 <div class="container">
-    <div *ngFor="let kitten of kittens" >
+    <div class="list basis">
+        <div *ngFor="let kitten of kittens" >
         <div  class="card" >
             <img [src]="kitten.picture" alt="" (mouseenter)="isHover = true" (mouseleave)="isHover = false">
             <div *ngIf="isHover">
@@ -13,6 +14,8 @@
             </div>
         </div>
     </div>
+    </div>
+    
     <div class="userSpace">
         <h1>My kittens</h1>
         <div *ngFor="let kitten of adoptedKittens" >

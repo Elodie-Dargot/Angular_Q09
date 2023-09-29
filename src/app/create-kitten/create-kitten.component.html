@@ -1,4 +1,4 @@
-<form class="form-card" [formGroup]="kittenForm" (ngSubmit)="kittenForm.valid && onSubmit()">
+<form class="form-card" [formGroup]="kittenForm" (ngSubmit)="onSubmit()">
     <fieldset class="kitten-card">
         <legend>Create Kitten Card</legend>
         Name: <input type="text" id="name" formControlName="name"><br />
@@ -7,6 +7,6 @@
         Photo link: <input type="text" id="picture" formControlName="picture">
     </fieldset>
     <button type="submit" [ngClass]="{'valid' : kittenForm.valid}">Create New Kitten</button>
-    <div class="validMessage" *ngIf="kittenForm.invalid">* L'ensemble des champs sont requis</div>
+    <div class="validMessage" *ngIf="kittenForm.invalid && showErrorMessage">L'ensemble des champs sont requis</div>
     <div class="validMessage" *ngIf="kittenForm.valid && click">The card has been created, you will redirect in 2 seconds</div>
 </form>
