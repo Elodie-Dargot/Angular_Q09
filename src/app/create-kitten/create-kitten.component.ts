@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { KittenService } from '../services/kitten.service';
 
@@ -10,16 +11,19 @@ import { KittenService } from '../services/kitten.service';
 export class CreateKittenComponent implements OnInit {
 
   kittenForm!: FormGroup
+  click!: boolean
 
   constructor(private formBuilder: FormBuilder,
-              private kittenService: KittenService){}
+              private kittenService: KittenService,
+              private routeur: Router){}
 
   ngOnInit(): void {
       this.kittenForm = this.formBuilder.group({
         name: [null, [Validators.required]],
         breed: [null, [Validators.required]],
         birthday: [null, [Validators.required]],
-        picture: [null]
+        picture: [null],
+        isAdopted: [false]
       })
     }
 
@@ -27,5 +31,9 @@ export class CreateKittenComponent implements OnInit {
   onSubmit(){
     this.kittenService.addKitten(this.kittenForm.value)
     console.log(this.kittenForm.value)
+    this.click = true
+    setTimeout(() =>{
+      this.routeur.navigateByUrl('kittenCollection')
+    }, 2000);
   }
 }

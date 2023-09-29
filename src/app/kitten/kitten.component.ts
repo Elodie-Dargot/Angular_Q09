@@ -14,4 +14,10 @@ export class KittenComponent {
 
   constructor(private kittenService: KittenService, private router: Router){}
 
+  onClick(){
+    let kitten = this.kitten
+    kitten.isAdopted = true
+    this.kittenService.adoptKitten(kitten)
+  }
+
 }

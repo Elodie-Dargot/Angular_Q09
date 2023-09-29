@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: "", component: ListKittenComponent},
   {path: "kittenCollection", component: ListKittenComponent},
   {path: "myKittenCollection", component: UserKittenComponent},
-  //{path: "createKitten", component: CreateKittenComponent},
+  {path: "createKitten", component: CreateKittenComponent},
 ];
 
 @NgModule({

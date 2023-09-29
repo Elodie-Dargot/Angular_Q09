@@ -9,12 +9,24 @@ import { KittenService } from '../services/kitten.service';
 })
 export class ListKittenComponent implements OnInit{
 
+  isHover: boolean = false
   kittens!: Kitten[]
+  adoptedKittens!: Kitten[]
 
   constructor(private kittenService: KittenService){}
 
   ngOnInit(): void {
-    this.kittens = this.kittenService.getAllKitten()
+    this.kittens = this.kittenService.getKittens()
+    this.adoptedKittens = this.kittenService.getAdoptedKitten()
+  }
+
+  adoptKitten(kitten: Kitten) {
+    this.kittenService.adoptKitten(kitten);
+    this.kittenService.getAdoptedKitten().push(kitten);
+    const index = this.kittens.indexOf(kitten);
+    if (index > -1){
+      this.kittens.splice(index, 1);
+    }
   }
 
 }

@@ -1,6 +1,10 @@
-<div>
+<div class="card">
     <h1>{{kitten.name}}</h1>
     <h2>{{kitten.breed}}</h2>
-    <p>Birthday 🎂 {{kitten.birthday}}</p>
+    <p>Birthday 🎂</p>
+    <p>{{kitten.birthday | date: 'dd MMMM yyyy'}}</p>
     <img [src]="kitten.picture" alt="">
+    <div *ngIf="!kitten.isAdopted" >
+        <button type="submit"  (click)="onClick()">Adoptez-moi!</button>
+    </div>
 </div>
